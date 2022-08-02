@@ -1,0 +1,25 @@
+a {
+  color: white !important;
+}
+
+nav {
+  background-color: azure;
+}
+
+button.btn-close {
+  color: white;
+}
+
+.nav-link {
+  color: azure;
+}
+
+.offcanvas-header {
+  background-color: #212529;
+  color: azure;
+}
+
+.offcanvas-body {
+  background-color: #212529;
+  color: azure;
+} 

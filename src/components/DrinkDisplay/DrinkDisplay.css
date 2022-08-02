@@ -1,0 +1,17 @@
+.container{
+  padding: 50px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+  grid-gap: 0px;
+}
+
+.item{
+  min-height: 200px;
+}
+
+.carouselImg{
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 150px;
+}
