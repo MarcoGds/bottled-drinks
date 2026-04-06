@@ -26,7 +26,7 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem('user', email); 
         
-        navigate('/profile'); 
+        navigate('/user'); 
       } else {
         setError(text || 'Email ou senha inválidos.');
       }
