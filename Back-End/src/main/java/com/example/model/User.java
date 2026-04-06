@@ -2,8 +2,6 @@ package com.example.model;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +22,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @JsonProperty("password")
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 

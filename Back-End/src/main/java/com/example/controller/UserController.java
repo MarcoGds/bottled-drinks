@@ -23,12 +23,20 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    // ... Make sure to import com.example.dto.RegisterRequest at the top! ...
+
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User newUser) {
-        if (userRepository.existsByEmail(newUser.getEmail())) {
+    public ResponseEntity<String> registerUser(@RequestBody RegisterRequest request) {
+        
+        if (userRepository.existsByEmail(request.getEmail())) {
             return ResponseEntity.badRequest().body("Error: Email já registrado!");
         }
 
+        User newUser = new User();
+        newUser.setFullName(request.getFullName());
+        newUser.setEmail(request.getEmail());
+        
+        newUser.setPasswordHash(request.getPassword()); 
         userRepository.save(newUser);
 
         return ResponseEntity.ok("Usuário registrado com sucesso!");
