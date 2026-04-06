@@ -1,0 +1,55 @@
+h1 {
+  padding-left: 60px;
+}
+
+.divider{
+  background-color: #212529;
+  color: azure;
+  margin: 20px;
+  padding: 10px;
+}
+
+.spirits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+  margin: 50px 70px;
+}
+
+.acessories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+  margin: 50px 70px;
+}
+
+.product1{
+  background-color: #282c34;
+  width: 300px;
+  height: 250px;
+  margin: auto 0;
+}
+
+.product2{
+  background-color: #282c34;
+  width: 300px;
+  height: 250px;
+
+}.product3{
+  background-color: #282c34;
+  width: 300px;
+  height: 250px;
+}
+
+img{
+  width: 300px;
+  height: 250px
+}
+
+.footer {
+  background-color: #212529;
+  display: block;
+  padding: 30px;
+  text-align: center;
+  color: aliceblue;
+}

@@ -1,0 +1,41 @@
+.drink-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item {
+  background-color: #000;
+  height: 450px;
+}
+
+.carouselImg{
+  background-color: #000;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.custom-caption {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 10px;
+  bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item, .carouselImg {
+    height: 300px;
+  }
+
+  .custom-caption h5 {
+    font-size: 1.5rem;
+  }
+
+  .custom-caption p {
+    font-size: 0.9rem;
+  }
+}
