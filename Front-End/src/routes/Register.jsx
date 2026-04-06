@@ -16,10 +16,10 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ type: 'info', message: 'Entrando...' });
+    setStatus({ type: 'info', message: 'Registrando...' });
 
     try {
-      const response = await fetch("https://bottled-drinks-api.onrender.com/users", {
+      const response = await fetch("https://bottled-drinks-api.onrender.com/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

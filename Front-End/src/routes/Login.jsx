@@ -13,7 +13,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('https://bottled-drinks-api.onrender.com/login', {
+      const response = await fetch('https://bottled-drinks-api.onrender.com/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,14 +21,14 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      const text = await response.text();
 
       if (response.ok) {
-        localStorage.setItem('user', data.username || email); 
+        localStorage.setItem('user', email); 
         
         navigate('/profile'); 
       } else {
-        setError(data.message || 'Email ou senha inválidos.');
+        setError(text || 'Email ou senha inválidos.');
       }
     } catch (err) {
       setError('Falha ao se conectar ao servidor. Tente novamente mais tarde.');
