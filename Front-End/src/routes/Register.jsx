@@ -19,7 +19,7 @@ export default function Register() {
     setStatus({ type: 'info', message: 'Entrando...' });
 
     try {
-      const response = await fetch("https://bottled-drinks-api.onrender.com/api/users/login", {
+      const response = await fetch("https://bottled-drinks-api.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -47,7 +47,7 @@ export default function Register() {
         <Col xs={12} md={6} lg={4} className="mx-auto">
           <Card className="register-card shadow-lg">
             <Card.Body className="p-4">
-              <h2 className="text-center mb-4">Acesse sua conta</h2>
+              <h2 className="text-center mb-4">Faça o seu cadastro</h2>
 
               {status.message && (
                 <Alert variant={status.type}>{status.message}</Alert>
@@ -79,7 +79,7 @@ export default function Register() {
                 </Form.Group>
 
                 <Button variant="warning" type="submit" className="w-100 fw-bold">
-                  Entrar
+                  Registrar
                 </Button>
               </Form>
             </Card.Body>
