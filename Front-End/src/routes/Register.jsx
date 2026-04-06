@@ -19,7 +19,7 @@ export default function Register() {
     setStatus({ type: 'info', message: 'Entrando...' });
 
     try {
-      const response = await fetch("https://bottled-drinks-api.onrender.com", {
+      const response = await fetch("https://bottled-drinks-api.onrender.com/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

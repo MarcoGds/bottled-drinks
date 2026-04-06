@@ -13,7 +13,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('https://bottled-drinks-api.onrender.com', {
+      const response = await fetch('https://bottled-drinks-api.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
