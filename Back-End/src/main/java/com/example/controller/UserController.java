@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dto.LoginRequest;
+import com.example.dto.RegisterRequest;
 import com.example.model.User;
 import com.example.repository.UserRepository;
 
