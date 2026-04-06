@@ -28,6 +28,7 @@ export default function Topbar() {
                                 <Nav.Link href="#action2">Carrinho</Nav.Link>
                                 <Nav.Link href="/login">Registrar</Nav.Link>
                                 <Nav.Link href="/register">Login</Nav.Link>
+                                <Nav.Link href="/user">Perfil</Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

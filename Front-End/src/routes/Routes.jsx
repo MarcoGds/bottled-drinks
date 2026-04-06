@@ -6,6 +6,7 @@ import { Products } from './Products';
 import Login from './Login';
 import Register from './Register';
 import { Topbar } from '../components';
+import UserPage from './UserPage';
 
 export function RoutesController() {
 
@@ -17,6 +18,7 @@ export function RoutesController() {
         <Route path="/products" element={<Products />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </React.Fragment>
   );
