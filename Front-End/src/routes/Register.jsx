@@ -26,7 +26,7 @@ export default function Register() {
         body: JSON.stringify({
           fullName: formData.fullName,
           email: formData.email,
-          password: formData.passwordHash
+          password: formData.password
         }),
       });
 
