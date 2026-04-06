@@ -4,6 +4,7 @@ import './Login.css';
 
 export default function Register() {
   const [formData, setFormData] = useState({
+    fullName: '',
     email: '',
     password: ''
   });
@@ -23,8 +24,9 @@ export default function Register() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          fullName: formData.fullName,
           email: formData.email,
-          password: formData.password
+          password: formData.passwordHash
         }),
       });
 
@@ -52,6 +54,18 @@ export default function Register() {
               {status.message && (
                 <Alert variant={status.type}>{status.message}</Alert>
               )}
+
+              <Form.Group className="mb-3">
+                  <Form.Label>Nome Completo</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="fullName"
+                    placeholder="Digite seu nome completo"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                  />
+              </Form.Group>
 
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
