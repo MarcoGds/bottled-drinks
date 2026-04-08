@@ -56,7 +56,7 @@ public class UserController {
                 responseData.put("fullName", user.getFullName());
                 responseData.put("email", user.getEmail());
 
-                return ResponseEntity.ok("Login realizado com sucesso!");
+                return ResponseEntity.ok(responseData);
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Erro: Senha incorreta.");
             }
