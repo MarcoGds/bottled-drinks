@@ -18,6 +18,7 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        cache: 'no-store',
         body: JSON.stringify({ 
           email: email,
           password: password

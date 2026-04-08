@@ -26,8 +26,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // ... Make sure to import com.example.dto.RegisterRequest at the top! ...
-
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody RegisterRequest request) {
         
