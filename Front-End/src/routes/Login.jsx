@@ -18,25 +18,32 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ 
+          email: email,
+          password: password
+        })
       });
 
       const text = await response.text();
 
       if (response.ok) {
+        const data = await response.json();
+
         const userData = {
-          name: response.user.name,
-          email: response.user.email
+          name: data.fullName,
+          email: data.email
         };
-        localStorage.setItem('user', JSON.stringify(userData));
         
+        localStorage.setItem('user', JSON.stringify(userData));
         navigate('/user');
+
       } else {
-        setError(text || 'Email ou senha inválidos.');
+        const errorText = await response.text();
+        setError(errorText || 'Email ou senha inválidos.');
       }
-    } catch (err) {
+    } catch (error) {
       setError('Falha ao se conectar ao servidor. Tente novamente mais tarde.');
-      console.error(err);
+      console.error(error);
     }
   };
 

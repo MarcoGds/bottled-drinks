@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
         
         Optional<User> userOptional = userRepository.findByEmail(loginRequest.getEmail());
 
@@ -52,6 +54,10 @@ public class UserController {
             User user = userOptional.get();
             
             if (user.getPasswordHash().equals(loginRequest.getPassword())) {
+                Map<String, String> responseData = new HashMap<>();
+                responseData.put("fullName", user.getFullName());
+                responseData.put("email", user.getEmail());
+
                 return ResponseEntity.ok("Login realizado com sucesso!");
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Erro: Senha incorreta.");
