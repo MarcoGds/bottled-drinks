@@ -24,8 +24,6 @@ const Login = () => {
         })
       });
 
-      const text = await response.text();
-
       if (response.ok) {
         const data = await response.json();
 
