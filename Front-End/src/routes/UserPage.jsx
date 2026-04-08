@@ -10,7 +10,8 @@ const UserPage = () => {
 
     if (savedUser) {
       setIsLoggedIn(true);
-      setUsername(savedUser);
+      const parsedUser = JSON.parse(savedUser);
+      setUsername(parsedUser.name);
     }
   }, []);
 

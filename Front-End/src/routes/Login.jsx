@@ -24,7 +24,11 @@ const Login = () => {
       const text = await response.text();
 
       if (response.ok) {
-        localStorage.setItem('user', email); 
+        const userData = {
+          name: "Marco",
+          email: "marco@marco.com"
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
         
         navigate('/user');
       } else {
