@@ -16,3 +16,7 @@ Para rodar o backend, acesse a pasta principal do Java, configure suas credencia
 
 Para rodar o frontend, acesse a pasta do React, instale as dependências usando seu terminal e inicie o servidor local.
 - npm start
+
+## Link do projeto hospedado no Render ##
+
+https://bottled-drinks-ui.onrender.com/
