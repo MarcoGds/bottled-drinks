@@ -5,7 +5,7 @@ function CartPage() {
   const userId = 1;
 
   useEffect(() => {
-    fetch(`http://localhost:8080/cart/${userId}`)
+    fetch(`https://bottled-drinks-api.onrender.com/cart_item/${userId}`)
       .then(res => res.json())
       .then(data => {
         console.log("Cart data:", data); // 👈 VERY IMPORTANT
@@ -20,7 +20,7 @@ function CartPage() {
     );
 
     const removeItem = async (id) => {
-      await fetch(`http://localhost:8080/cart/${id}`, {
+      await fetch(`https://bottled-drinks-api.onrender.com/cart_item/${userId}`, {
         method: "DELETE"
       });
 

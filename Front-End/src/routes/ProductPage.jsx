@@ -4,7 +4,7 @@ const userId = 1;
 
 const addToCart = async (productId) => {
   try {
-    await fetch("https://bottled-drinks-api.onrender.com/products", {
+    await fetch("https://bottled-drinks-api.onrender.com/cart_item", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -39,8 +39,6 @@ function ProductPage() {
         <div key={product.id}>
           <h3>{product.name}</h3>
           <p>${product.price}</p>
-
-          {/* ✅ USING FUNCTION HERE */}
           <button onClick={() => addToCart(product.id)}>
             Add to Cart
           </button>
