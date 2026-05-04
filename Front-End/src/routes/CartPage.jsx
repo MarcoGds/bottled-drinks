@@ -5,7 +5,7 @@ function CartPage() {
   const userId = 1;
 
   useEffect(() => {
-    fetch(`https://bottled-drinks-api.onrender.com/cart/1/${userId}`)
+    fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
       .then(res => res.json())
       .then(data => {
         console.log("Cart data:", data);
@@ -19,7 +19,7 @@ function CartPage() {
       : 0;
 
     const removeItem = async (id) => {
-      await fetch(`https://bottled-drinks-api.onrender.com/cart/1/${userId}`, {
+      await fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`, {
         method: "DELETE"
       });
 
@@ -48,5 +48,7 @@ function CartPage() {
     </div>
   );
 }
+
+console.log("Cart data:", data);
 
 export default CartPage;
