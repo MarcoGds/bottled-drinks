@@ -49,6 +49,4 @@ function CartPage() {
   );
 }
 
-console.log("Cart data:", data);
-
 export default CartPage;
