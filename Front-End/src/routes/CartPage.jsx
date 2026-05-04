@@ -5,22 +5,21 @@ function CartPage() {
   const userId = 1;
 
   useEffect(() => {
-    fetch(`https://bottled-drinks-api.onrender.com/cart_item/${userId}`)
+    fetch(`https://bottled-drinks-api.onrender.com/cart/1/${userId}`)
       .then(res => res.json())
       .then(data => {
-        console.log("Cart data:", data); // 👈 VERY IMPORTANT
+        console.log("Cart data:", data);
         setCart(data);
       })
       .catch(err => console.error(err));
   }, []);
 
-  const total = cart.reduce(
-    (sum, item) => sum + (item.productPrice || 0) * item.quantity,
-    0
-    );
+    const total = Array.isArray(cart)
+      ? cart.reduce((sum, item) => sum + (item.productPrice || 0) * item.quantity, 0)
+      : 0;
 
     const removeItem = async (id) => {
-      await fetch(`https://bottled-drinks-api.onrender.com/cart_item/${userId}`, {
+      await fetch(`https://bottled-drinks-api.onrender.com/cart/1/${userId}`, {
         method: "DELETE"
       });
 
