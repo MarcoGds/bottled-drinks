@@ -14,17 +14,35 @@ function CartPage() {
       .catch(err => console.error(err));
   }, []);
 
+  const total = cart.reduce(
+    (sum, item) => sum + (item.productPrice || 0) * item.quantity,
+    0
+    );
+
+    const removeItem = async (id) => {
+      await fetch(`http://localhost:8080/cart/${id}`, {
+        method: "DELETE"
+      });
+
+      setCart(cart.filter(item => item.id !== id));
+};
+
   return (
     <div>
       <h1>Your Cart</h1>
+      <p>Total: ${total.toFixed(2)}</p>
 
       {cart.length === 0 ? (
         <p>Cart is empty</p>
       ) : (
         cart.map(item => (
           <div key={item.id} style={{ border: "1px solid black", margin: 10, padding: 10 }}>
-            <p>Product ID: {item.productId}</p>
+            <h3>{item.productName}</h3>
+            <p>Price: ${item.productPrice}</p>
             <p>Quantity: {item.quantity}</p>
+            <button onClick={() => removeItem(item.id)}>
+              Remove
+            </button>
           </div>
         ))
       )}
