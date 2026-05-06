@@ -58,7 +58,7 @@ function CartPage() {
   return (
     <div>
       <h1>Your Cart</h1>
-      <p>Total: ${total.toFixed(2)}</p>
+      <p>Total: R${total.toFixed(2)}</p>
 
       {cart.length === 0 ? (
         <p>Cart is empty</p>

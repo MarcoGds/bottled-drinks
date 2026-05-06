@@ -79,5 +79,5 @@ public class CartController {
         item.setQuantity(updatedItem.getQuantity());
 
     return repository.save(item);
-}
+    }
 }
