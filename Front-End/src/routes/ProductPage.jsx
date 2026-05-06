@@ -4,7 +4,7 @@ const userId = 1;
 
 const addToCart = async (productId) => {
   try {
-    await fetch('https://bottled-drinks-api.onrender.com/products', {
+    await fetch('https://bottled-drinks-api.onrender.com/cart', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
