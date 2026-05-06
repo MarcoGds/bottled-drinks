@@ -58,6 +58,9 @@ public class CartController {
             if (product != null) {
                 item.setProductName(product.getName());
                 item.setProductPrice(product.getPrice());
+            } else {
+                item.setProductName("Unknown product");
+                item.setProductPrice(0.0);
             }
         }
 
