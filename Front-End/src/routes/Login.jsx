@@ -50,7 +50,6 @@ const Login = () => {
     <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
       <h2>Login</h2>
       
-      {/* Show error message if there is one */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const userId = 1;
+const userId = localStorage.getItem("userId");
 
 const addToCart = async (productId) => {
   try {

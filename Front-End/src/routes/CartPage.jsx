@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function CartPage() {
-  const userId = 1;
+  const userId = localStorage.getItem("userId");
   const [cart, setCart] = useState([]);
   
   const fetchCart = () => {
@@ -66,7 +66,7 @@ function CartPage() {
           Array.isArray(cart) && cart.map(item => (
           <div key={item.id} style={{ border: "1px solid black", margin: 10, padding: 10 }}>
             <h3>{item.productName}</h3>
-            <p>Price: ${item.productPrice}</p>
+            <p>Price: R${item.productPrice}</p>
             <div>
               <button   disabled={item.quantity <= 1} onClick={() => item.id && updateQuantity(item.id, item.quantity - 1)}>
                 -
