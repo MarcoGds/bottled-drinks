@@ -10,6 +10,10 @@ function CartPage() {
     .then(data => setCart(data));
   };
 
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
   const updateQuantity = async (id, newQuantity) => {
     if (newQuantity < 1) return;
 
