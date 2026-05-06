@@ -4,7 +4,7 @@ const userId = 1;
 
 const addToCart = async (productId) => {
   try {
-    await fetch("https://bottled-drinks-api.onrender.com/products", {
+    await fetch('https://bottled-drinks-api.onrender.com/products', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -28,7 +28,10 @@ function ProductPage() {
   useEffect(() => {
     fetch("https://bottled-drinks-api.onrender.com/products")
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => {
+        console.log("Products:", data); // debug
+        setProducts(Array.isArray(data) ? data : []);
+      })
   }, []);
 
   return (
