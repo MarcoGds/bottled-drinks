@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 function CartPage() {
+  const userId = 1;
   const [cart, setCart] = useState([]);
   
-  const fetchCart = (id) => {
-  fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`)
+  const fetchCart = () => {
+  fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
     .then(res => res.json())
     .then(data => {
       console.log("Cart data:", data);
@@ -12,8 +13,8 @@ function CartPage() {
     });
   };
 
-  useEffect((id) => {
-    fetchCart(id);
+  useEffect(() => {
+    fetchCart();
   }, []);
 
   const updateQuantity = async (id, newQuantity) => {
@@ -36,16 +37,6 @@ function CartPage() {
 
     fetchCart();
   };
-
-  useEffect((id) => {
-    fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log("Cart data:", data);
-        setCart(data);
-      })
-      .catch(err => console.error(err));
-  }, []);
 
     const total = Array.isArray(cart)
       ? cart.reduce((sum, item) => sum + (item.productPrice || 0) * item.quantity, 0)
