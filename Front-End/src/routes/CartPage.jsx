@@ -2,22 +2,21 @@ import { useEffect, useState } from "react";
 
 function CartPage() {
   const [cart, setCart] = useState([]);
-  const userId = 1;
   
-  const fetchCart = () => {
-  fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
+  const fetchCart = (id) => {
+  fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`)
     .then(res => res.json())
     .then(data => setCart(data));
   };
 
-  useEffect(() => {
-    fetchCart();
+  useEffect((id) => {
+    fetchCart(id);
   }, []);
 
   const updateQuantity = async (id, newQuantity) => {
     if (newQuantity < 1) return;
 
-    await fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`, {
+    await fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -30,8 +29,8 @@ function CartPage() {
     fetchCart();
   };
 
-  useEffect(() => {
-    fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
+  useEffect((id) => {
+    fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("Cart data:", data);
@@ -45,7 +44,7 @@ function CartPage() {
       : 0;
 
     const removeItem = async (id) => {
-      await fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`, {
+      await fetch(`https://bottled-drinks-api.onrender.com/cart/${id}`, {
         method: "DELETE"
       });
 
@@ -65,12 +64,10 @@ function CartPage() {
             <h3>{item.productName}</h3>
             <p>Price: ${item.productPrice}</p>
             <div>
-              <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+              <button   disabled={item.quantity <= 1} onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                 -
               </button>
-
               <span>{item.quantity}</span>
-
               <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                 +
               </button>
