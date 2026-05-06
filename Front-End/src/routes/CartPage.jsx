@@ -64,7 +64,7 @@ function CartPage() {
             <h3>{item.productName}</h3>
             <p>Price: ${item.productPrice}</p>
             <div>
-              <button   disabled={item.quantity <= 1} onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+              <button   disabled={item.quantity <= 1} onClick={() => item.id && updateQuantity(item.id, item.quantity - 1)}>
                 -
               </button>
               <span>{item.quantity}</span>

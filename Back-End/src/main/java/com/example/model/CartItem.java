@@ -37,6 +37,9 @@ public class CartItem {
     public Integer getQuantity() { return quantity; }
 
     // SETTERS
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setUserId(Long userId) { this.userId = userId; }
     public void setProductId(Long productId) { this.productId = productId; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
