@@ -3,6 +3,28 @@ import { useEffect, useState } from "react";
 function CartPage() {
   const [cart, setCart] = useState([]);
   const userId = 1;
+  
+  const fetchCart = () => {
+  fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
+    .then(res => res.json())
+    .then(data => setCart(data));
+  };
+
+  const updateQuantity = async (id, newQuantity) => {
+    if (newQuantity < 1) return;
+
+    await fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        quantity: newQuantity
+      })
+    });
+
+    fetchCart();
+  };
 
   useEffect(() => {
     fetch(`https://bottled-drinks-api.onrender.com/cart/${userId}`)
@@ -38,7 +60,17 @@ function CartPage() {
           <div key={item.id} style={{ border: "1px solid black", margin: 10, padding: 10 }}>
             <h3>{item.productName}</h3>
             <p>Price: ${item.productPrice}</p>
-            <p>Quantity: {item.quantity}</p>
+            <div>
+              <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                -
+              </button>
+
+              <span>{item.quantity}</span>
+
+              <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                +
+              </button>
+            </div>
             <button onClick={() => removeItem(item.id)}>
               Remove
             </button>
