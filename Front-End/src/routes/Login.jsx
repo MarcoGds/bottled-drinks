@@ -29,11 +29,13 @@ const Login = () => {
         const data = await response.json();
 
         const userData = {
+          id: data.id,
           name: data.fullName,
           email: data.email
         };
         
         localStorage.setItem('user', JSON.stringify(userData));
+        localStorage.setItem('userId', data.id);
         navigate('/user');
 
       } else {

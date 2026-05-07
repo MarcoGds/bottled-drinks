@@ -52,7 +52,8 @@ public class UserController {
             User user = userOptional.get();
             
             if (user.getPasswordHash().equals(loginRequest.getPassword())) {
-                Map<String, String> responseData = new HashMap<>();
+                Map<String, Object> responseData = new HashMap<>();
+                responseData.put("id", user.getId());
                 responseData.put("fullName", user.getFullName());
                 responseData.put("email", user.getEmail());
 
