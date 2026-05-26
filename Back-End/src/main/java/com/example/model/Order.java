@@ -21,6 +21,11 @@ public class Order {
     private String status;
     private Double totalPrice;
 
+    public Order() {
+    this.createdAt = LocalDateTime.now();
+    this.status = "PENDING";
+    }
+
     // GETTERS AND SETTERS
 
     public Long getId() {

@@ -55,6 +55,31 @@ function CartPage() {
     fetchCart();
   };
 
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/orders/checkout/${userId}`,
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Checkout failed");
+      }
+
+      const order = await response.json();
+
+      alert("Order completed successfully!");
+
+      console.log(order);
+
+    } catch (error) {
+      console.error(error);
+      alert("Error finishing order");
+    }
+  };
+
   return (
     <div>
       <h1>Your Cart</h1>
@@ -82,6 +107,9 @@ function CartPage() {
           </div>
         ))
       )}
+      <button onClick={handleCheckout}>
+        Finish Order
+      </button>
     </div>
   );
 }
