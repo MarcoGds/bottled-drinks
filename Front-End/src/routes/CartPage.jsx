@@ -58,7 +58,7 @@ function CartPage() {
   const handleCheckout = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/orders/checkout/${userId}`,
+        `https://bottled-drinks-api.onrender.com/orders/checkout/${userId}`,
         {
           method: "POST",
         }
